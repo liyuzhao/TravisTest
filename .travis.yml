@@ -3,9 +3,11 @@ env:
   matrix:
     - ANDROID_TARGET=android-21 ANDROID_ABI=armeabi-v7a
 
+sudo: false
+
 android:
   components:
-    - build-tools-22.0.1
+    - build-tools-23.0.1
     - android-23
     #- extra-android-m2repository
     #- extra-android-support
@@ -20,4 +22,4 @@ before_script:
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
-script: ./gradlew connectedAndroidTest
+script: ./gradlew assembleRelease
